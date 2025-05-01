@@ -4,11 +4,12 @@ import random
 import codecs
 
 class SpeedTypingTest:
+    
     def __init__(self, root: ttk.Tk):
          # настройка темы
         self.darkmode = '#161a1e'
         self.textcolor = '#e6e6e6'
-        
+        self.errcolor = '#cb2821'
         self.start_timer = 0
          # создание окна
         self.root = root
@@ -33,7 +34,7 @@ class SpeedTypingTest:
         self.label.pack()
          # поле ввода
         self.entry = ttk.Entry(self.root)
-        self.entry.configure(width=60, justify='center')
+        self.entry.configure(width=100, justify='center')
         self.entry.pack(anchor='center', padx=8, pady= 8)
          # кнопка start
         self.start_button = ttk.Button(self.root, background=self.textcolor, text="Начать тест", font=5, width=10, height=2, border=15, command=self.reset_test)
@@ -50,7 +51,7 @@ class SpeedTypingTest:
         """Check if the typed sentence matches the displayed one and show the result."""
 
         if self.label['text'] != self.label_ent['text']:
-            self.mistakes.config(text='В предложении есть ошибки. Попробуйте еще раз.')
+            self.mistakes.config(text='В предложении есть ошибки. Попробуйте еще раз.', foreground=self.errcolor)
         else:
             wpm = round((len(self.label_ent['text']) / 5) / (timer / 60), 2)
             self.mistakes.config(text='Слов в минуту: ' + str(wpm))
@@ -78,10 +79,10 @@ class SpeedTypingTest:
 
     # выбор случайного предложения
     def random_sentense(self):
-        n = random.randint(0, 310)
+        n = random.randint(0, 520)
         path = 'database\\' + str(n) + '_sentence.txt'
         with codecs.open(path, 'r', 'utf-8') as sentense:
-            text = sentense.read().strip('\n')
+            text = sentense.readline().strip('\n')
             return text
 
 if __name__ == "__main__":
