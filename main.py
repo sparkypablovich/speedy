@@ -27,10 +27,10 @@ class SpeedTypingTest:
         """Set up the UI components."""
 
          # рамка для вывода времени
-        self.timelabel = ttk.Label(self.root, foreground=self.textcolor, background=self.darkmode, text='Приготовся!', font=10, height=5, )
+        self.timelabel = ttk.Label(self.root, foreground=self.textcolor, background=self.darkmode, text='Приготовься!', font=10, height=5, )
         self.timelabel.pack()
          # вывод текста
-        self.label = ttk.Label(self.root, foreground=self.textcolor, background=self.darkmode, text='Для запуска теста нажимайте кнопку Start Typing.\nПосле написания нажмите клавишу Enter\nНе забудте нажать на строку ввода ;)', borderwidth=50, font=30)
+        self.label = ttk.Label(self.root, foreground=self.textcolor, background=self.darkmode, text='Для запуска теста нажимайте кнопку "Начать тест".\nПосле написания нажмите клавишу Enter\nНе забудте нажать на строку ввода ;)', borderwidth=50, font=30)
         self.label.pack()
          # поле ввода
         self.entry = ttk.Entry(self.root)
